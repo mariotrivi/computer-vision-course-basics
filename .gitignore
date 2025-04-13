@@ -21,6 +21,10 @@ dataspace/*
 !dataspace/.gitkeep
 checkpoints/*
 !checkpoints/.gitkeep
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
 
 # Otros
 .DS_Store
