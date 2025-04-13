@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.env.*
+.cache/
+
+# Poetry
+poetry.lock
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ignorar los volúmenes montados (aunque existan .gitkeep locales)
+dataspace/*
+!dataspace/.gitkeep
+checkpoints/*
+!checkpoints/.gitkeep
+
+# Otros
+.DS_Store

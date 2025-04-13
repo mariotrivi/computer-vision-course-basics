@@ -1,0 +1,21 @@
+{
+    "name": "computer-vision-course-basics",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "cv-course",
+    "workspaceFolder": "/workspace/code",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "python.defaultInterpreterPath": "/usr/bin/python3"
+        },
+        "extensions": [
+          "ms-python.python",
+          "ms-toolsai.jupyter"
+        ]
+      }
+    },
+    "remoteEnv": {
+      "PYTHONPATH": "${containerWorkspaceFolder}"
+    }
+  }
+  

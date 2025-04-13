@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  cv-course:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cv-course-dev
+    volumes:
+      - ${DATASPACE_PATH}:/workspace/code
+      - ${DATASPACE_PATH}:/workspace/dataspace
+      - ${CHECKPOINTS_PATH}:/workspace/checkpoints
+    env_file:
+      - .env
+    working_dir: /workspace/code
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    ports:
+      - "8888:8888"
