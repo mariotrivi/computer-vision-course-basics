@@ -3,13 +3,15 @@ FROM nvidia/cuda:12.3.2-devel-ubuntu22.04
 RUN apt-get update && apt-get install -y \
     python3 python3-pip python3-venv \
     git curl build-essential libgl1-mesa-glx \
+    libglib2.0-0 \            
     && rm -rf /var/lib/apt/lists/*
+
 
 ENV POETRY_VERSION=1.8.2
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 
-WORKDIR /workspaces/code
+WORKDIR /workspace/code
 
 COPY pyproject.toml ./
 RUN poetry config virtualenvs.create false \
@@ -18,3 +20,5 @@ RUN poetry config virtualenvs.create false \
 COPY . .
 
 ENV PYTHONUNBUFFERED=1
+
+CMD ["tail", "-f", "/dev/null"]

@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: cv-course-dev
     volumes:
-      - ${DATASPACE_PATH}:/workspace/code
+      - ${WORKSPACE_PATH}:/workspace/code
       - ${DATASPACE_PATH}:/workspace/dataspace
       - ${CHECKPOINTS_PATH}:/workspace/checkpoints
     env_file:
@@ -21,3 +21,10 @@ services:
             - capabilities: [gpu]
     ports:
       - "8888:8888"
+    
+    networks:
+      - cv-network  
+
+networks:
+  cv-network:      
+    driver: bridge
